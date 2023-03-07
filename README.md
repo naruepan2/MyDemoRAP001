@@ -1,2 +1,2 @@
 # MyDemoRAP001
-Demo RAP with CodeinMins channel
+## Reference: https://www.youtube.com/@codeinmins
