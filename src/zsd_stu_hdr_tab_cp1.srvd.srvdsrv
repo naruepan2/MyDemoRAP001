@@ -1,0 +1,5 @@
+@EndUserText.label: 'ZSD_STU_HDR_TAB_CP1'
+define service ZSD_STU_HDR_TAB_CP1 {
+  expose ZC_STU_HDR_TAB_CP1 as Student;
+  expose ZC_STU_ATT_TAB_CP1 as Attachment;
+}

@@ -1,0 +1,53 @@
+@Metadata.layer: #CORE
+
+@UI:{
+    headerInfo: { typeName: 'Professor',
+                  typeNamePlural: 'Professors',
+                  title: { type: #STANDARD,label: 'Professor', value: 'Id' } } }
+@Search.searchable: true
+
+
+annotate view ZC_PROFESSOR_DEMO01 with
+{
+  @UI.facet: [{ id: 'Professor',
+                purpose: #STANDARD,
+                type: #IDENTIFICATION_REFERENCE,
+                label: 'Professor',
+                position: 10
+              }
+             ]
+
+  @Search.defaultSearchElement: true
+  @UI:{ lineItem: [{ position: 10, label: 'Professor ID' }],
+         identification: [{ position: 10, label: 'Professor ID' }] }
+  Id;
+  @Search.defaultSearchElement: true
+  @UI:{ lineItem: [{ position: 20, label: 'Firstname' }],
+         identification: [{ position: 20, label: 'Firstname' }] }
+  Firstname;
+  @Search.defaultSearchElement: true
+  @UI:{ lineItem: [{ position: 30, label: 'Lastname' }],
+         identification: [{ position: 30, label: 'Lastname' }] }
+  Lastname;
+  @Search.defaultSearchElement: true
+  @UI:{ lineItem: [{ position: 40, label: 'Age' }],
+        identification: [{ position: 40, label: 'Age' }] }
+  Age;
+  @UI:{ lineItem: [{ position: 50, label: 'Role' }],
+         identification: [{ position: 50, label: 'Role' }] }
+  Role;
+  @UI:{ lineItem: [{ position: 60, label: 'Salary' }],
+         identification: [{ position: 60, label: 'Salary' }] }
+  Salary;
+  @UI:{ lineItem: [{ position: 65 }],
+         identification: [{ position: 65 }] }
+  BonusAmount;
+  @UI:{ lineItem: [{ position: 70, label: 'Active' },
+                   { type: #FOR_ACTION, dataAction: 'setActive', label: 'Set Active' }
+                  ],
+         identification: [{ position: 70, label: 'Active' },
+                          { type: #FOR_ACTION, dataAction: 'setActive', label: 'Set Active' }
+                         ] }
+  Active;
+
+}

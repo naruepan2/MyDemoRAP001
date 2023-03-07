@@ -1,0 +1,30 @@
+managed implementation in class zbp_rap_i_student_test1 unique;
+strict ( 1 );
+
+define behavior for ZRAP_I_STUDENT_TEST1 alias Student
+persistent table zrap_stud_test1
+lock master
+authorization master ( global )
+//etag master <field_name>
+{
+  create;
+  update;
+  delete;
+
+  action statusUpdate;
+  field ( numbering : managed, readonly ) Id;
+  mapping for ZRAP_I_STUDENT_TEST1
+  {
+    //Id = id;
+    Firstname = firstname;
+    Lastname = lastname;
+    Age = age;
+    Course = course;
+    Courseduration = courseduration;
+    Status = status;
+    Gender = gender;
+    Dob = dob;
+    Lastchangedat = lastchangedat;
+    Locallastchangedat = locallastchangedat;
+  }
+}

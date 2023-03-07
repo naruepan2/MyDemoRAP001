@@ -1,0 +1,56 @@
+@Metadata.layer: #CORE
+
+@UI: { headerInfo: { typeName: 'Academic Result Detail',
+                     typeNamePlural: 'Academic Result Details',
+                     title: { type: #STANDARD, label: 'Academic Result Details', value: 'Id' },
+                     description: { type: #STANDARD, label: 'Academic Result Details' } },
+       presentationVariant: [{ sortOrder: [{ by: 'Semester', direction: #ASC }] }]
+ }
+@Search.searchable: true
+
+annotate view ZC_AR_STUDENT_DEMO01 with
+{
+  @UI.facet: [{ id: 'Academic',
+                purpose: #STANDARD,
+                type: #IDENTIFICATION_REFERENCE,
+                label: 'Academic Result Details',
+                position : 10 }]
+
+  @UI: { identification: [{ position: 10, label: 'Student ID' }] }
+  @UI.hidden: true
+  @Search.defaultSearchElement: true
+  Id;
+
+  @UI: { lineItem: [{position: 20, importance: #HIGH ,label: 'Course' }],
+         identification: [{ position: 20, label: 'Course' }] }
+  @Search.defaultSearchElement: true
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'ZI_COURSE_DEGAL', element: 'Value' },
+                                       additionalBinding: [{ localElement: 'Course_desc', element: 'Description' }] }]
+  Course;
+  @UI: { lineItem: [{position: 30, importance: #HIGH ,label: 'Course Description' }],
+         identification: [{ position: 30, label: 'Course Description' }] }
+  @Search.defaultSearchElement: true
+  Course_desc;
+
+  @UI: { lineItem: [{position: 40, importance: #HIGH ,label: 'Semester' }],
+         identification: [{ position: 40, label: 'Semester' }] }
+  @Search.defaultSearchElement: true
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'ZI_SEMESTER_DEGAL', element: 'Value' },
+                                       additionalBinding: [{ localElement: 'Semester_desc', element: 'Description' }] }]
+  Semester;
+  @UI: { lineItem: [{position: 50, importance: #HIGH ,label: 'Semester Description' }],
+       identification: [{ position: 50, label: 'Semester Description' }] }
+  @Search.defaultSearchElement: true
+  Semester_desc;
+
+  @UI: { lineItem: [{position: 60, importance: #HIGH ,label: 'Status' }],
+       identification: [{ position: 60, label: 'Status' }] }
+  @Search.defaultSearchElement: true
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'ZI_SEMRES_DEGAL', element: 'Value' },
+                                       additionalBinding: [{ localElement: 'Semresult_desc', element: 'Description' }] }]
+  Semresult;
+  @UI: { lineItem: [{position: 70, importance: #HIGH ,label: 'Semester Result Description' }],
+       identification: [{ position: 70, label: 'Semester Result Description' }] }
+  @Search.defaultSearchElement: true
+  Semresult_desc;
+}

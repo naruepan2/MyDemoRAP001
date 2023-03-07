@@ -1,0 +1,6 @@
+@EndUserText.label: 'ZSRVD_STUDENT_DEMO_01'
+define service ZSRVD_STUDENT_DEMO_01 {
+  expose ZC_STUDENT_DEMO_01 as Student;
+  expose ZC_AR_STUDENT_DEMO01 as AcademicResult;
+  expose ZC_PROFESSOR_DEMO01 as Professor;
+}

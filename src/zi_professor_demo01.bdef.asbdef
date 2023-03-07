@@ -1,0 +1,34 @@
+managed implementation in class zbp_i_professor_demo01 unique;
+//strict ( 1 );
+
+define behavior for ZI_PROFESSOR_DEMO01 alias Professor
+persistent table znar_rap_demo_02
+lock master
+authorization master ( instance )
+etag master Locallastchangedat
+{
+  create;
+  update;
+  delete;
+
+  field ( numbering : managed, readonly ) Id;
+  field ( readonly : update ) Salary;
+
+  action ( features : instance ) setActive result [1] $self;
+
+  determination changeSalary on modify { field Role; }
+
+
+  mapping for ZNAR_RAP_DEMO_02
+  {
+    Id = id;
+    Firstname = firstname;
+    Lastname = lastname;
+    Age = age;
+    Role = role;
+    Salary = salary;
+    Active = active;
+    Lastchangedat = lastchangedat;
+    Locallastchangedat = locallastchangedat;
+  }
+}

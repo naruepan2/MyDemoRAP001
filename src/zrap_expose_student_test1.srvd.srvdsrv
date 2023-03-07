@@ -1,0 +1,4 @@
+@EndUserText.label: 'ZRAP_EXPOSE_STUDENT_TEST1'
+define service ZRAP_EXPOSE_STUDENT_TEST1 {
+  expose ZRAP_C_STUDENT_TEST1;
+}

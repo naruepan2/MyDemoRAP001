@@ -1,0 +1,65 @@
+managed implementation in class zbp_i_stu_hdr_tab_cp1 unique;
+strict ( 1 );
+with draft;
+
+define behavior for ZI_STU_HDR_TAB_CP1 alias Student
+persistent table zstu_hdr_tab_cp1
+draft table zdrf_hdr_tab_cp1
+lock master
+total etag Locallastchangedat
+authorization master ( global )
+etag master Lastchangedat
+{
+  create;
+  update;
+  delete;
+  association _Attachments { create; with draft; }
+
+  field ( readonly, numbering : managed ) Id;
+
+  draft action Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+
+  draft determine action Prepare;
+
+  mapping for ZSTU_HDR_TAB_CP1
+  {
+    Id = id;
+    Firstname = firstname;
+    Lastname = lastname;
+    Age = age;
+    Course = course;
+    Courseduration = courseduration;
+    Status = status;
+    Gender = gender;
+    Dob = dob;
+    Lastchangedat = lastchangedat;
+    Locallastchangedat = locallastchangedat;
+  }
+}
+
+define behavior for ZI_STU_ATT_TAB_CP1 alias Attachment
+persistent table zstu_att_tab_cp1
+draft table zdrf_att_tab_cp1
+lock dependent by _Student
+authorization dependent by _Student
+etag master Lastchangedat
+{
+  update;
+  delete;
+  field ( readonly ) Id;
+  association _Student { with draft; }
+
+  mapping for ZSTU_ATT_TAB_CP1
+  {
+    AttachId = attach_id;
+    Attachment = attachment;
+    Comments = comments;
+    Filename = filename;
+    Id = id;
+    Mimetype = mimetype;
+  }
+
+}
