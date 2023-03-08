@@ -12,6 +12,13 @@ authorization master ( global )
   delete;
 
   action statusUpdate;
+  action statusUpdate2;
+
+  internal action testInternalAction1;
+  internal action testInternalAction2;
+
+  determination setInitialStatus on modify { field Gender; }
+
   field ( numbering : managed, readonly ) Id;
   mapping for ZRAP_I_STUDENT_TEST1
   {

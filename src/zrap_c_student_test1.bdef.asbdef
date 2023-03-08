@@ -8,4 +8,5 @@ define behavior for ZRAP_C_STUDENT_TEST1 alias Student
   use delete;
 
   use action statusUpdate;
+  use action statusUpdate2;
 }

@@ -14,12 +14,23 @@ annotate view ZRAP_C_STUDENT_TEST1 with
                    dataAction: 'statusUpdate',
 //                   invocationGrouping: #CHANGE_SET
                    invocationGrouping: #ISOLATED
-       }],
+                },
+                {
+                   position: 11,
+                   label: 'Update Status2',
+                   type: #FOR_ACTION, 
+                   dataAction: 'statusUpdate2'
+                }],
       identification: [{ position: 10, label: 'Student ID' }]
   }
   Id;
   @UI: {
-      lineItem: [{ position: 20, label: 'First Name' }],
+      lineItem: [{ position: 20, 
+                   label: 'First Name'
+//                   label: 'Update Status2',
+//                   type: #FOR_ACTION, 
+//                   dataAction: 'statusUpdate2' 
+                }],
       identification: [{ position: 20, label: 'First Name' }]
   }
   Firstname;
